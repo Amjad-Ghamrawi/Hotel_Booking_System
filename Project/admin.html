@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - BookEase</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>BookEase</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html">Home</a></li>
+                    <li class="nav-item"><a href="listings.html">Listings</a></li>
+                    <li class="nav-item"><a href="host.html">Host with Us</a></li>
+                    <li class="nav-item"><a href="admin.html" class="active">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="profile-menu">
+                <div class="profile-button">
+                    <img src="images/admin-avatar.jpg" alt="Admin" class="avatar" id="header-avatar">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="dropdown-menu">
+                    <a href="profile.html">My Profile</a>
+                    <a href="#" id="logout-btn">Logout</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Admin Dashboard -->
+    <section class="admin-dashboard">
+        <div class="container">
+            <h1 class="page-title">Admin Dashboard</h1>
+
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Users</h3>
+                        <p class="stat-value" id="total-users">0</p>
+                        <p class="stat-change positive">+12% this month</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Listings</h3>
+                        <p class="stat-value" id="total-listings">0</p>
+                        <p class="stat-change positive">+8% this month</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Bookings</h3>
+                        <p class="stat-value" id="total-bookings">0</p>
+                        <p class="stat-change positive">+15% this month</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Revenue</h3>
+                        <p class="stat-value" id="total-revenue">$0</p>
+                        <p class="stat-change positive">+10% this month</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="pending">Pending Approval</button>
+                <button class="tab-btn" data-tab="users">User Management</button>
+                <button class="tab-btn" data-tab="listings">Listings</button>
+                <button class="tab-btn" data-tab="reports">Reports</button>
+                <button class="tab-btn" data-tab="settings">Settings</button>
+            </div>
+
+            <div class="tab-content active" id="pending-tab">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h2>Pending Approvals</h2>
+                        <div class="header-actions">
+                            <select class="form-select" id="pending-filter">
+                                <option value="all">All Types</option>
+                                <option value="guesthouse">Guesthouses</option>
+                                <option value="activity">Activities</option>
+                            </select>
+                            <div class="search-bar">
+                                <input type="text" placeholder="Search...">
+                                <button><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Host</th>
+                                    <th>Submitted</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pending-listings">
+                                <!-- Pending listings will be added here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="users-tab">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h2>User Management</h2>
+                        <div class="header-actions">
+                            <select class="form-select" id="user-filter">
+                                <option value="all">All Users</option>
+                                <option value="guest">Guests</option>
+                                <option value="host">Hosts</option>
+                                <option value="admin">Admins</option>
+                            </select>
+                            <div class="search-bar">
+                                <input type="text" placeholder="Search users...">
+                                <button><i class="fas fa-search"></i></button>
+                            </div>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i> Add User
+                            </button>
+                        </div>
+                    </div>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Joined</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-list">
+                                <!-- Users will be added here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button class="btn-page" id="users-prev-page" disabled><i
+                                class="fas fa-chevron-left"></i></button>
+                        <span id="users-current-page">1</span> of <span id="users-total-pages">5</span>
+                        <button class="btn-page" id="users-next-page"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="listings-tab">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h2>All Listings</h2>
+                        <div class="header-actions">
+                            <select class="form-select" id="listing-filter">
+                                <option value="all">All Types</option>
+                                <option value="guesthouse">Guesthouses</option>
+                                <option value="activity">Activities</option>
+                            </select>
+                            <div class="search-bar">
+                                <input type="text" placeholder="Search listings...">
+                                <button><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Host</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="all-listings">
+                                <!-- Listings will be added here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button class="btn-page" id="listings-prev-page" disabled><i
+                                class="fas fa-chevron-left"></i></button>
+                        <span id="listings-current-page">1</span> of <span id="listings-total-pages">5</span>
+                        <button class="btn-page" id="listings-next-page"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="reports-tab">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h2>Reports & Analytics</h2>
+                        <div class="header-actions">
+                            <select class="form-select" id="report-period">
+                                <option value="7days">Last 7 days</option>
+                                <option value="30days" selected>Last 30 days</option>
+                                <option value="90days">Last 90 days</option>
+                                <option value="year">Last year</option>
+                            </select>
+                            <button class="btn btn-outline btn-sm">
+                                <i class="fas fa-download"></i> Export
+                            </button>
+                        </div>
+                    </div>
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h3>Bookings Overview</h3>
+                            <div class="chart-container" id="bookings-chart">
+                                <!-- Chart will be rendered here -->
+                                <div class="chart-placeholder">
+                                    <i class="fas fa-chart-line"></i>
+                                    <p>Bookings trend chart will be displayed here</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Revenue</h3>
+                            <div class="chart-container" id="revenue-chart">
+                                <!-- Chart will be rendered here -->
+                                <div class="chart-placeholder">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <p>Revenue chart will be displayed here</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>User Growth</h3>
+                            <div class="chart-container" id="user-growth-chart">
+                                <!-- Chart will be rendered here -->
+                                <div class="chart-placeholder">
+                                    <i class="fas fa-chart-line"></i>
+                                    <p>User growth chart will be displayed here</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Listing Distribution</h3>
+                            <div class="chart-container" id="listing-distribution-chart">
+                                <!-- Chart will be rendered here -->
+                                <div class="chart-placeholder">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <p>Listing distribution chart will be displayed here</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="settings-tab">
+                <div class="admin-card">
+                    <div class="card-header">
+                        <h2>Admin Settings</h2>
+                    </div>
+                    <div class="settings-sections">
+                        <div class="settings-section">
+                            <h3>General Settings</h3>
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="site-name">Site Name</label>
+                                    <input type="text" id="site-name" class="form-control" value="BookEase">
+                                </div>
+                                <div class="form-group">
+                                    <label for="site-email">Contact Email</label>
+                                    <input type="email" id="site-email" class="form-control"
+                                        value="contact@bookease.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="currency">Default Currency</label>
+                                    <select id="currency" class="form-select">
+                                        <option value="USD" selected>USD ($)</option>
+                                        <option value="EUR">EUR (€)</option>
+                                        <option value="GBP">GBP (£)</option>
+                                        <option value="CAD">CAD ($)</option>
+                                        <option value="AUD">AUD ($)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="maintenance-mode">
+                                    <label for="maintenance-mode">Enable Maintenance Mode</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Settings</button>
+                            </form>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3>Commission Settings</h3>
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="host-commission">Host Commission Rate (%)</label>
+                                    <input type="number" id="host-commission" class="form-control" value="3" min="0"
+                                        max="100">
+                                </div>
+                                <div class="form-group">
+                                    <label for="guest-fee">Guest Service Fee (%)</label>
+                                    <input type="number" id="guest-fee" class="form-control" value="5" min="0"
+                                        max="100">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Settings</button>
+                            </form>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3>Email Notifications</h3>
+                            <form class="settings-form">
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="notify-new-user" checked>
+                                    <label for="notify-new-user">New User Registration</label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="notify-new-listing" checked>
+                                    <label for="notify-new-listing">New Listing Submission</label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="notify-new-booking" checked>
+                                    <label for="notify-new-booking">New Booking</label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="notify-user-report">
+                                    <label for="notify-user-report">User Report</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Settings</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- View Listing Modal -->
+    <div class="modal" id="view-listing-modal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h2 id="modal-listing-title">Listing Title</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="listing-gallery-modal">
+                    <div class="main-image">
+                        <img src="" alt="Listing" id="modal-main-image">
+                    </div>
+                    <div class="thumbnail-images" id="modal-thumbnails">
+                        <!-- Thumbnail images will be added here dynamically -->
+                    </div>
+                </div>
+
+                <div class="listing-details-grid">
+                    <div class="listing-info-section">
+                        <h3>Basic Information</h3>
+                        <div class="info-row">
+                            <div class="info-label">Type</div>
+                            <div class="info-value" id="modal-type">Guesthouse</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Price</div>
+                            <div class="info-value" id="modal-price">$120/night</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Location</div>
+                            <div class="info-value" id="modal-location">New York, NY</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Host</div>
+                            <div class="info-value" id="modal-host">John Doe</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Submitted</div>
+                            <div class="info-value" id="modal-date">May 15, 2023</div>
+                        </div>
+                    </div>
+
+                    <div class="listing-info-section">
+                        <h3>Description</h3>
+                        <p id="modal-description">Listing description will be displayed here.</p>
+                    </div>
+
+                    <div class="listing-info-section" id="modal-details-section">
+                        <h3>Details</h3>
+                        <div class="details-grid" id="modal-details">
+                            <!-- Details will be added here dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="listing-info-section">
+                        <h3>Amenities</h3>
+                        <div class="amenities-list" id="modal-amenities">
+                            <!-- Amenities will be added here dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="listing-info-section">
+                        <h3>Location</h3>
+                        <div class="map-container" id="modal-map">
+                            <!-- Map will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="approval-actions" id="approval-actions">
+                    <button class="btn btn-outline" id="rejection-btn">
+                        <i class="fas fa-times"></i> Reject
+                    </button>
+                    <button class="btn btn-primary" id="approval-btn">
+                        <i class="fas fa-check"></i> Approve
+                    </button>
+                </div>
+                <div class="management-actions" id="management-actions" style="display: none;">
+                    <button class="btn btn-outline" id="feature-btn">
+                        <i class="far fa-star"></i> Feature
+                    </button>
+                    <button class="btn btn-danger" id="suspend-btn">
+                        <i class="fas fa-ban"></i> Suspend
+                    </button>
+                    <button class="btn btn-primary" id="edit-btn">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>BookEase</h2>
+                    <p>Your Travel Booking Platform</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="listings.html">Listings</a></li>
+                            <li><a href="host.html">Host with Us</a></li>
+                            <li><a href="admin.html">Admin</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Social</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BookEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookEase - Your Travel Booking Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>BookEase</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="active">Home</a></li>
+                    <li class="nav-item"><a href="listings.html">Listings</a></li>
+                    <li class="nav-item"><a href="host.html">Host with Us</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="profile-menu" style="display: none;">
+                <div class="profile-button">
+                    <img src="images/default-avatar.jpg" alt="Profile" class="avatar">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="dropdown-menu">
+                    <a href="profile.html">My Profile</a>
+                    <a href="profile.html?tab=bookings">My Bookings</a>
+                    <a href="#" id="logout-btn">Logout</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Find Your Perfect Getaway</h1>
+                <p>Discover unique stays and experiences around the world</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search by location...">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">Welcome to BookEase</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>BookEase is your one-stop platform for booking unique accommodations and exciting activities
+                        worldwide. Whether you're looking for a cozy guesthouse or an adventure-filled activity, we've
+                        got you covered.</p>
+                    <p>Browse through our curated listings, book with confidence, and create memories that last a
+                        lifetime.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Destinations</p>
+                    </div>
+                    <div class="stat">
+                        <h3>2,000+</h3>
+                        <p>Listings</p>
+                    </div>
+                    <div class="stat">
+                        <h3>15,000+</h3>
+                        <p>Happy Guests</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Listings Section -->
+    <section class="featured-listings">
+        <div class="container">
+            <h2 class="section-title">Featured Guesthouses</h2>
+            <div class="listings-grid" id="featured-guesthouses">
+                <!-- Listings will be added here dynamically -->
+            </div>
+
+            <h2 class="section-title">Popular Activities</h2>
+            <div class="listings-grid" id="featured-activities">
+                <!-- Activities will be added here dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Explore Locations</h2>
+            <div id="map" class="map-container">
+                <!-- Map will be rendered here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>BookEase</h2>
+                    <p>Your Travel Booking Platform</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="listings.html">Listings</a></li>
+                            <li><a href="host.html">Host with Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Social</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SafarBNB. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>

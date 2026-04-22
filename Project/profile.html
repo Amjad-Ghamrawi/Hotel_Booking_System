@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - BookEase</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>BookEase</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html">Home</a></li>
+                    <li class="nav-item"><a href="listings.html">Listings</a></li>
+                    <li class="nav-item"><a href="host.html">Host with Us</a></li>
+                </ul>
+            </nav>
+            <div class="profile-menu">
+                <div class="profile-button">
+                    <img src="images/default-avatar.jpg" alt="Profile" class="avatar" id="header-avatar">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="dropdown-menu">
+                    <a href="profile.html" class="active">My Profile</a>
+                    <a href="profile.html?tab=bookings">My Bookings</a>
+                    <a href="#" id="logout-btn">Logout</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Profile Page -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="images/default-avatar.jpg" alt="Profile" id="profile-avatar">
+                    <button class="edit-avatar-btn">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="profile-title">
+                    <h1 id="profile-name">John Doe</h1>
+                    <p id="member-since">Member since January 2022</p>
+                </div>
+            </div>
+
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="profile">My Profile</button>
+                <button class="tab-btn" data-tab="bookings">My Bookings</button>
+            </div>
+
+            <div class="profile-content">
+                <!-- Profile Tab -->
+                <div class="tab-content active" id="profile-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Personal Information</h2>
+                            <button class="btn btn-outline btn-sm edit-btn" id="edit-profile-btn">
+                                <i class="fas fa-pencil-alt"></i> Edit
+                            </button>
+                        </div>
+                        <div class="card-body" id="profile-view">
+                            <div class="profile-info">
+                                <div class="info-row">
+                                    <div class="info-label">Full Name</div>
+                                    <div class="info-value" id="display-name">John Doe</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Email</div>
+                                    <div class="info-value" id="display-email">johndoe@example.com</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Phone</div>
+                                    <div class="info-value" id="display-phone">+1 123-456-7890</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Address</div>
+                                    <div class="info-value" id="display-address">123 Main St, City, Country</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Bio</div>
+                                    <div class="info-value" id="display-bio">I love traveling and exploring new places.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" id="profile-edit" style="display: none;">
+                            <form id="profile-form">
+                                <div class="form-group">
+                                    <label for="full-name">Full Name</label>
+                                    <input type="text" id="full-name" name="full-name" class="form-control"
+                                        value="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email">Email</label>
+                                    <input type="email" id="profile-email" name="email" class="form-control"
+                                        value="johndoe@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" name="phone" class="form-control"
+                                        value="+1 123-456-7890">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" id="address" name="address" class="form-control"
+                                        value="123 Main St, City, Country">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bio">Bio</label>
+                                    <textarea id="bio" name="bio" class="form-control"
+                                        rows="3">I love traveling and exploring new places.</textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-outline" id="cancel-edit-btn">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Account Settings</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="settings-group">
+                                <h3>Password</h3>
+                                <button class="btn btn-outline" id="change-password-btn">Change Password</button>
+                            </div>
+                            <div class="settings-group">
+                                <h3>Notifications</h3>
+                                <div class="setting-row">
+                                    <div class="setting-label">Email Notifications</div>
+                                    <div class="setting-control">
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="setting-row">
+                                    <div class="setting-label">SMS Notifications</div>
+                                    <div class="setting-control">
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="setting-row">
+                                    <div class="setting-label">Marketing Emails</div>
+                                    <div class="setting-control">
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card danger-zone">
+                        <div class="card-header">
+                            <h2>Danger Zone</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="danger-action">
+                                <div>
+                                    <h3>Delete Account</h3>
+                                    <p>Once you delete your account, there is no going back. Please be certain.</p>
+                                </div>
+                                <button class="btn btn-danger">Delete Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Tab -->
+                <div class="tab-content" id="bookings-tab" style="display: none;">
+                    <div class="bookings-header">
+                        <h2>My Bookings</h2>
+                        <div class="booking-filters">
+                            <button class="btn btn-outline active" data-filter="all">All</button>
+                            <button class="btn btn-outline" data-filter="upcoming">Upcoming</button>
+                            <button class="btn btn-outline" data-filter="past">Past</button>
+                            <button class="btn btn-outline" data-filter="cancelled">Cancelled</button>
+                        </div>
+                    </div>
+
+                    <div class="bookings-list" id="bookings-list">
+                        <!-- Bookings will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Change Password Modal -->
+    <div class="modal" id="password-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Change Password</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="password-form">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirm New Password</label>
+                        <input type="password" id="confirm-new-password" class="form-control" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="cancel-password-btn">Cancel</button>
+                <button class="btn btn-primary" id="save-password-btn">Change Password</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>BookEase</h2>
+                    <p>Your Travel Booking Platform</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="listings.html">Listings</a></li>
+                            <li><a href="host.html">Host with Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Social</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BookEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>

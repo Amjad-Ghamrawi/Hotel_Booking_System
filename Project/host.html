@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host with Us - BookEase</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>BookEase</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html">Home</a></li>
+                    <li class="nav-item"><a href="listings.html">Listings</a></li>
+                    <li class="nav-item"><a href="host.html" class="active">Host with Us</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="profile-menu" style="display: none;">
+                <div class="profile-button">
+                    <img src="images/default-avatar.jpg" alt="Profile" class="avatar">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="dropdown-menu">
+                    <a href="profile.html">My Profile</a>
+                    <a href="profile.html?tab=bookings">My Bookings</a>
+                    <a href="#" id="logout-btn">Logout</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Host Page -->
+    <section class="host-section">
+        <div class="container">
+            <div class="host-header">
+                <h1>Become a Host</h1>
+                <p>Share your space or activity with travelers from around the world</p>
+            </div>
+
+            <div class="host-options">
+                <div class="host-option-card active" data-type="guesthouse">
+                    <div class="option-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>List a Guesthouse</h3>
+                    <p>Share your space and earn income by hosting travelers</p>
+                </div>
+                <div class="host-option-card" data-type="activity">
+                    <div class="option-icon">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <h3>Host an Activity</h3>
+                    <p>Share your passion, expertise, or unique experiences</p>
+                </div>
+            </div>
+
+            <div class="host-forms">
+                <!-- Guesthouse Form -->
+                <form id="guesthouse-form" class="host-form active">
+                    <h2>List Your Guesthouse</h2>
+
+                    <div class="form-section">
+                        <h3>Basic Information</h3>
+                        <div class="form-group">
+                            <label for="gh-title">Title</label>
+                            <input type="text" id="gh-title" class="form-control"
+                                placeholder="Give your place a catchy title">
+                        </div>
+                        <div class="form-group">
+                            <label for="gh-description">Description</label>
+                            <textarea id="gh-description" class="form-control" rows="4"
+                                placeholder="Describe your place in detail"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gh-price">Price per Night ($)</label>
+                                <input type="number" id="gh-price" class="form-control" min="1" step="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="gh-guests">Max Guests</label>
+                                <input type="number" id="gh-guests" class="form-control" min="1" step="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Property Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gh-type">Property Type</label>
+                                <select id="gh-type" class="form-select">
+                                    <option value="">Select property type</option>
+                                    <option value="apartment">Apartment</option>
+                                    <option value="house">House</option>
+                                    <option value="condo">Condo</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="cabin">Cabin</option>
+                                    <option value="cottage">Cottage</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="gh-bedrooms">Bedrooms</label>
+                                <input type="number" id="gh-bedrooms" class="form-control" min="1" step="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="gh-bathrooms">Bathrooms</label>
+                                <input type="number" id="gh-bathrooms" class="form-control" min="1" step="0.5">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Amenities</h3>
+                        <div class="amenities-grid">
+                            <div class="amenity-item">
+                                <input type="checkbox" id="wifi" name="amenities" value="wifi">
+                                <label for="wifi">WiFi</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="kitchen" name="amenities" value="kitchen">
+                                <label for="kitchen">Kitchen</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="tv" name="amenities" value="tv">
+                                <label for="tv">TV</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="ac" name="amenities" value="ac">
+                                <label for="ac">Air Conditioning</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="heating" name="amenities" value="heating">
+                                <label for="heating">Heating</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="washer" name="amenities" value="washer">
+                                <label for="washer">Washer</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="dryer" name="amenities" value="dryer">
+                                <label for="dryer">Dryer</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="pool" name="amenities" value="pool">
+                                <label for="pool">Pool</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="hot-tub" name="amenities" value="hot-tub">
+                                <label for="hot-tub">Hot Tub</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="parking" name="amenities" value="parking">
+                                <label for="parking">Free Parking</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="gym" name="amenities" value="gym">
+                                <label for="gym">Gym</label>
+                            </div>
+                            <div class="amenity-item">
+                                <input type="checkbox" id="pets" name="amenities" value="pets">
+                                <label for="pets">Pets Allowed</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Location</h3>
+                        <div class="form-group">
+                            <label for="gh-address">Address</label>
+                            <input type="text" id="gh-address" class="form-control" placeholder="Street address">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gh-city">City</label>
+                                <input type="text" id="gh-city" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="gh-state">State/Province</label>
+                                <input type="text" id="gh-state" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="gh-zip">ZIP/Postal Code</label>
+                                <input type="text" id="gh-zip" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gh-country">Country</label>
+                            <select id="gh-country" class="form-select">
+                                <option value="">Select country</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="MX">Mexico</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="FR">France</option>
+                                <option value="DE">Germany</option>
+                                <option value="IT">Italy</option>
+                                <option value="ES">Spain</option>
+                                <option value="JP">Japan</option>
+                                <option value="AU">Australia</option>
+                            </select>
+                        </div>
+
+                        <div class="map-container" id="gh-map">
+                            <!-- Map will be rendered here -->
+                            <div class="map-placeholder">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Map will be displayed here</p>
+                            </div>
+                        </div>
+                        <p class="map-helper">Click on the map to pinpoint your exact location</p>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Photos</h3>
+                        <div class="photo-upload">
+                            <div class="upload-area" id="gh-upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag and drop photos or click to upload</p>
+                                <span>Upload at least 5 photos (Max 10)</span>
+                                <input type="file" id="gh-photo-upload" multiple accept="image/*"
+                                    style="display: none;">
+                                <button type="button" class="btn btn-outline" id="gh-upload-btn">Choose Files</button>
+                            </div>
+                            <div class="photo-preview" id="gh-photo-preview">
+                                <!-- Photo previews will be added here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>House Rules</h3>
+                        <div class="form-group">
+                            <label for="gh-rules">House Rules (Optional)</label>
+                            <textarea id="gh-rules" class="form-control" rows="4"
+                                placeholder="Add any specific rules for guests"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline btn-lg">Save as Draft</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Submit for Review</button>
+                    </div>
+                </form>
+
+                <!-- Activity Form -->
+                <form id="activity-form" class="host-form">
+                    <h2>List Your Activity</h2>
+
+                    <div class="form-section">
+                        <h3>Basic Information</h3>
+                        <div class="form-group">
+                            <label for="act-title">Title</label>
+                            <input type="text" id="act-title" class="form-control"
+                                placeholder="Give your activity a catchy title">
+                        </div>
+                        <div class="form-group">
+                            <label for="act-description">Description</label>
+                            <textarea id="act-description" class="form-control" rows="4"
+                                placeholder="Describe your activity in detail"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="act-price">Price per Person ($)</label>
+                                <input type="number" id="act-price" class="form-control" min="1" step="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="act-duration">Duration (hours)</label>
+                                <input type="number" id="act-duration" class="form-control" min="0.5" step="0.5">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Activity Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="act-category">Category</label>
+                                <select id="act-category" class="form-select">
+                                    <option value="">Select category</option>
+                                    <option value="tours">Tours & Sightseeing</option>
+                                    <option value="outdoor">Outdoor Adventures</option>
+                                    <option value="food">Food & Drink</option>
+                                    <option value="classes">Classes & Workshops</option>
+                                    <option value="wellness">Wellness</option>
+                                    <option value="entertainment">Entertainment</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="act-group-size">Max Group Size</label>
+                                <input type="number" id="act-group-size" class="form-control" min="1" step="1">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="act-difficulty">Difficulty Level</label>
+                                <select id="act-difficulty" class="form-select">
+                                    <option value="">Select difficulty</option>
+                                    <option value="easy">Easy - Suitable for all skill levels</option>
+                                    <option value="moderate">Moderate - Some experience helpful</option>
+                                    <option value="difficult">Difficult - Experience required</option>
+                                    <option value="expert">Expert - Advanced skills required</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="act-language">Language</label>
+                                <select id="act-language" class="form-select">
+                                    <option value="">Select language</option>
+                                    <option value="english">English</option>
+                                    <option value="spanish">Spanish</option>
+                                    <option value="french">French</option>
+                                    <option value="german">German</option>
+                                    <option value="mandarin">Mandarin</option>
+                                    <option value="japanese">Japanese</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Schedule</h3>
+                        <div class="form-group">
+                            <label>Available Days</label>
+                            <div class="day-selector">
+                                <div class="day-item">
+                                    <input type="checkbox" id="day-mon" name="days" value="monday">
+                                    <label for="day-mon">Mon</label>
+                                </div>
+                                <div class="day-item">
+                                    <input type="checkbox" id="day-tue" name="days" value="tuesday">
+                                    <label for="day-tue">Tue</label>
+                                </div>
+                                <div class="day-item">
+                                    <input type="checkbox" id="day-wed" name="days" value="wednesday">
+                                    <label for="day-wed">Wed</label>
+                                </div>
+                                <div class="day-item">
+                                    <input type="checkbox" id="day-thu" name="days" value="thursday">
+                                    <label for="day-thu">Thu</label>
+                                </div>
+                                <div class="day-item">
+                                    <input type="checkbox" id="day-fri" name="days" value="friday">
+                                    <label for="day-fri">Fri</label>
+                                </div>
+                                <div class="day-item">
+                                    <input type="checkbox" id="day-sat" name="days" value="saturday">
+                                    <label for="day-sat">Sat</label>
+                                </div>
+                                <div class="day-item">
+                                    <input type="checkbox" id="day-sun" name="days" value="sunday">
+                                    <label for="day-sun">Sun</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Available Times</label>
+                            <div class="time-slots" id="time-slots">
+                                <div class="time-slot">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <select class="form-select time-select">
+                                                <option value="">Select time</option>
+                                                <option value="09:00">09:00 AM</option>
+                                                <option value="10:00">10:00 AM</option>
+                                                <option value="11:00">11:00 AM</option>
+                                                <option value="12:00">12:00 PM</option>
+                                                <option value="13:00">01:00 PM</option>
+                                                <option value="14:00">02:00 PM</option>
+                                                <option value="15:00">03:00 PM</option>
+                                                <option value="16:00">04:00 PM</option>
+                                                <option value="17:00">05:00 PM</option>
+                                                <option value="18:00">06:00 PM</option>
+                                                <option value="19:00">07:00 PM</option>
+                                            </select>
+                                        </div>
+                                        <button type="button" class="btn btn-outline btn-sm remove-time">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline btn-sm" id="add-time-slot">
+                                <i class="fas fa-plus"></i> Add Time Slot
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>What's Included</h3>
+                        <div class="form-group">
+                            <label for="act-included">What's Included</label>
+                            <textarea id="act-included" class="form-control" rows="3"
+                                placeholder="List items included in your activity (equipment, food, etc.)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="act-bring">What to Bring</label>
+                            <textarea id="act-bring" class="form-control" rows="3"
+                                placeholder="List items participants should bring"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Location</h3>
+                        <div class="form-group">
+                            <label for="act-address">Meeting Point Address</label>
+                            <input type="text" id="act-address" class="form-control" placeholder="Street address">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="act-city">City</label>
+                                <input type="text" id="act-city" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="act-state">State/Province</label>
+                                <input type="text" id="act-state" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="act-zip">ZIP/Postal Code</label>
+                                <input type="text" id="act-zip" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="act-country">Country</label>
+                            <select id="act-country" class="form-select">
+                                <option value="">Select country</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="MX">Mexico</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="FR">France</option>
+                                <option value="DE">Germany</option>
+                                <option value="IT">Italy</option>
+                                <option value="ES">Spain</option>
+                                <option value="JP">Japan</option>
+                                <option value="AU">Australia</option>
+                            </select>
+                        </div>
+
+                        <div class="map-container" id="act-map">
+                            <!-- Map will be rendered here -->
+                            <div class="map-placeholder">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Map will be displayed here</p>
+                            </div>
+                        </div>
+                        <p class="map-helper">Click on the map to pinpoint your meeting location</p>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Photos</h3>
+                        <div class="photo-upload">
+                            <div class="upload-area" id="act-upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag and drop photos or click to upload</p>
+                                <span>Upload at least 3 photos (Max 10)</span>
+                                <input type="file" id="act-photo-upload" multiple accept="image/*"
+                                    style="display: none;">
+                                <button type="button" class="btn btn-outline" id="act-upload-btn">Choose Files</button>
+                            </div>
+                            <div class="photo-preview" id="act-photo-preview">
+                                <!-- Photo previews will be added here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline btn-lg">Save as Draft</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Submit for Review</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Host Benefits Section -->
+    <section class="host-benefits">
+        <div class="container">
+            <h2 class="section-title">Benefits of Hosting with BookEase</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Earn Extra Income</h3>
+                    <p>Turn your property or expertise into a source of income on your own schedule.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Meet People from Around the World</h3>
+                    <p>Connect with travelers and share your local knowledge and culture.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Host Protection</h3>
+                    <p>Our $1M liability insurance covers you in case of property damage or accidents.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our dedicated support team is always ready to help you with any issues.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Host Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Hosts Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Hosting on BookEase has been a wonderful experience. I've met amazing people and the extra
+                            income has helped me renovate my home."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/host-1.jpg" alt="Sarah L." class="author-image">
+                        <div class="author-info">
+                            <h4>Sarah L.</h4>
+                            <p>Guesthouse Host, Miami</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I love sharing my passion for cooking with travelers. The platform is easy to use and the
+                            BookEase team is always helpful."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/host-2.jpg" alt="Marco T." class="author-image">
+                        <div class="author-info">
+                            <h4>Marco T.</h4>
+                            <p>Cooking Class Host, New York</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As a hiking guide, BookEase has connected me with people who truly appreciate nature. The
+                            flexible scheduling allows me to work on my terms."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/host-3.jpg" alt="Elena M." class="author-image">
+                        <div class="author-info">
+                            <h4>Elena M.</h4>
+                            <p>Hiking Guide, Colorado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section class="faqs">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I get paid as a host?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We process payments 24 hours after your guest checks in. You can receive payments via direct
+                            deposit, PayPal, or other available methods in your country.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How much does it cost to list on BookEase?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It's completely free to list your property or activity on BookEase. We only take a small
+                            commission (3%) when you get a booking.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does the review process take?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most listings are approved within 24-48 hours. We review all submissions to ensure they meet
+                            our quality and safety standards.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I list multiple properties or activities?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can list as many properties or activities as you want under your host account. Each
+                            one will be reviewed separately.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What happens if my property gets damaged?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>BookEase offers a Host Protection Program that covers up to $1 million in damages. You can
+                            submit a claim within 14 days of the guest's checkout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>BookEase</h2>
+                    <p>Your Travel Booking Platform</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="listings.html">Listings</a></li>
+                            <li><a href="host.html">Host with Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Social</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BookEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/host.js"></script>
+</body>
+
+</html>
